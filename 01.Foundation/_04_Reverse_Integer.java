@@ -31,3 +31,7 @@ public class _04_Reverse_Integer {
         System.out.println(reverseInt(d));
     }
 }
+
+
+// TC: O(log10(n))
+// SC: O(1)
