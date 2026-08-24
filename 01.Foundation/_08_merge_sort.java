@@ -52,3 +52,6 @@ public class _08_merge_sort {
         }
     }
 }
+
+// TC: O(N logN)
+// SC: O(N)
