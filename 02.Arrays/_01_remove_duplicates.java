@@ -68,3 +68,7 @@ public class _01_remove_duplicates {
 // BF:
 // TC: O(n)
 // SC: O(n)
+
+// Opt:
+// TC: O(n)
+// SC: O(1)
