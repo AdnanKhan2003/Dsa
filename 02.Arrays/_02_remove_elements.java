@@ -22,3 +22,8 @@ public class _02_remove_elements {
 
 // TC: O(n)
 // SC: O(1)
+
+/*
+Intuition:
+- Move All non k elements to front
+*/
