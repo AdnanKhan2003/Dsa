@@ -1,4 +1,4 @@
-public class _10_PutEvenToLast {
+public class _11_Add2Numbers2LL {
     public static class ListNode {
         int value;
         ListNode next;
@@ -39,30 +39,48 @@ public class _10_PutEvenToLast {
         System.out.println();
     }
 
-    public static ListNode pushEvenToLast(ListNode head) {
-        ListNode odd = head;
-        ListNode even = head.next;
-        ListNode evenHead = even;
+    public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode dummy = new ListNode(0);
+        ListNode temp = dummy;
+        int carry = 0;
 
-        while(even != null && even.next != null) {
-            odd.next = even.next;
-            odd = odd.next;
-            even.next = odd.next;
-            even = even.next;
+        while(l1 != null || l2 != null || carry != 0) {
+            int sum = 0;
+
+            if(l1 != null) {
+                sum += l1.value;
+                l1 = l1.next;
+            }
+
+            if(l2 != null) {
+                sum += l2.value;
+                l2 = l2.next;
+            }
+
+            sum += carry;
+            carry = sum / 10;
+            ListNode newNode = new ListNode(sum % 10);
+            temp.next = newNode;
+            temp = newNode;
         }
-        odd.next = evenHead;
-        return head;
+
+        return dummy.next;
     }
 
     public static void main(String[] args) {
-        int[] arr = { 1, 2, 3, 4, 5, 6 };
-        ListNode head = convertArrToLL(arr);
+        int[] arr1 = { 9, 9, 9, 9, 9, 9, 9 };
+        int[] arr2 = { 9, 9, 9, 9 };
 
-        printLL(head);
-        ListNode movedEvenToLast = pushEvenToLast(head);
-        printLL(movedEvenToLast);
+        ListNode l1 = convertArrToLL(arr1);
+        ListNode l2 = convertArrToLL(arr2);
+
+        printLL(l1);
+        printLL(l2);
+
+        ListNode reversedSum = addTwoNumbers(l1, l2);
+        printLL(reversedSum);
     }
 }
 
 // TC: O(n)
-// SC: O(1)
+// SC: O(n)
